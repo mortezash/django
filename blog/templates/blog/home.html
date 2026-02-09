@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>خانه</title>
+</head>
+<body>
+
+<h2>نام: {{ name }}</h2>
+<p>سن: {{ age }}</p>
+{% if age >= 18 %}
+    <p>بزرگسال</p>
+{% else %}
+    <p>کودک</p>
+{% endif %}
+
+</body>
+</html>
