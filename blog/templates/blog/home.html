@@ -1,18 +1,30 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <title>خانه</title>
-</head>
-<body>
+{% extends 'blog/base.html' %}
 
-<h2>نام: {{ name }}</h2>
-<p>سن: {{ age }}</p>
-{% if age >= 18 %}
-    <p>بزرگسال</p>
-{% else %}
-    <p>کودک</p>
-{% endif %}
+{% block title %}
+خانه
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+    <a href="{% url 'home' %}">خانه</a>
+    <p>{{ name|upper }}</p>
+    <p>{{ name|lower }}</p>
+    <p>{{ skills|length }}</p>
+
+    <p>سن: {{ age }}</p>
+    {% if age >= 18 %}
+        <p>بزرگسال</p>
+    {% else %}
+        <p>کودک</p>
+    {% endif %}
+    <ul>
+    {% for skill in skills %}
+        <li>{{ skill }}</li>
+    {% endfor %}
+    </ul>
+
+
+
+{% endblock %}
+
+
+
