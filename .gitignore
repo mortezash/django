@@ -1,14 +1,22 @@
 
-.env
 /.fleet
 /.idea
 /.vscode
 composer.lock
 
+# فایل‌های کامپایل شده
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# محیط مجازی
 .venv/
+.env
 .git/
+
 staticfiles/
+
+
+# دیتابیس لوکال
+db.sqlite3
