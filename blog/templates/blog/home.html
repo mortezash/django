@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-
+{% load static %}
 {% block title %}
 خانه
 {% endblock %}
@@ -22,9 +22,12 @@
     {% endfor %}
     </ul>
 
-
-
+{% endblock %}
+{% block extra_css %}
 {% endblock %}
 
+{% block extra_js %}
+    <script src="{% static 'blog/js/main.js' %}"></script>
+{% endblock %}
 
 

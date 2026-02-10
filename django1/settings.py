@@ -27,8 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATIC_URL = '/static/'
 
 # Application definition
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 INSTALLED_APPS = [
     'django.contrib.admin',

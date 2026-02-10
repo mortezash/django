@@ -1,21 +1,37 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}سایت{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}سایت من{% endblock %}</title>
+
+    <!-- CSS ها -->
+
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+
+    <!-- فاویکون و ... -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
 
-<header>
-    <h1>هدر سایت</h1>
-</header>
+    <!-- هدر، منو و ... -->
+    <header>
+        ...
+    </header>
 
-{% block content %}
-{% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
-<footer>
-    <p>فوتر سایت</p>
-</footer>
+    <!-- JavaScript ها -->
+    <script src="{% static 'blog/js/main.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
 
 </body>
 </html>
