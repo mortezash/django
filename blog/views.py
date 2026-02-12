@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.urls import reverse_lazy
 from .models import Post
 from django.utils.text import slugify
+from .forms import PostForm
 
 class PostListView(ListView):
     model = Post
@@ -26,18 +27,14 @@ class PostDetailView(DetailView):
 
 class PostCreateView(CreateView):
     model = Post
-    fields = ['title', 'body']
+    form_class = PostForm
     template_name = 'blog/post_form.html'
 
     def form_valid(self, form):
-        # مثال: چک کنیم عنوان حداقل ۵ کاراکتر باشه
-        if len(form.cleaned_data['title']) < 5:
-            form.add_error('title', 'عنوان باید حداقل ۵ کاراکتر باشد.')
-            return self.form_invalid(form)
-
-        # خودکار ساختن slug
+        # ساخت slug خودکار
         form.instance.slug = slugify(form.cleaned_data['title'])
         return super().form_valid(form)
+
 
 
 class PostUpdateView(UpdateView):
