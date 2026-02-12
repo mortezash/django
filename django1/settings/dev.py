@@ -1,7 +1,7 @@
 # project/settings/dev.py
 from .base import *
 
-DEBUG = False
+DEBUG = True
 
 SECRET_KEY = 'dev-secret-key'
 
