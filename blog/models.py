@@ -13,6 +13,16 @@ class Post(models.Model):
         return self.title
 
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            n = 1
+            while Post.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{n}"
+                n += 1
+            self.slug = slug
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         # بعد از ایجاد یا ویرایش پست، redirect میشه به صفحه جزئیات خودش
