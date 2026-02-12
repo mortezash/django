@@ -4,6 +4,7 @@ from .models import Post
 
 class PostListView(ListView):
     model = Post
+    fields = ['title', 'slug', 'body']
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
 
@@ -16,11 +17,7 @@ class PostDetailView(DetailView):
 class PostCreateView(CreateView):
     model = Post
     fields = ['title', 'slug', 'body']
-    #template_name = 'blog/post_form.html'
-
-    def form_valid(self, form):
-        print("فرم معتبر بود 😎")
-        return super().form_valid(form)
+    template_name = 'blog/post_form.html'
 
 
 class PostUpdateView(UpdateView):

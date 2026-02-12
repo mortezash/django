@@ -15,5 +15,6 @@ class Post(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args=[self.slug])
+        # بعد از ایجاد یا ویرایش پست، redirect میشه به صفحه جزئیات خودش
+        return reverse("blog:post_detail", args=[self.slug])
 

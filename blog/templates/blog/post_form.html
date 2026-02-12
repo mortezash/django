@@ -1,7 +1,15 @@
-<h1>Post Form</h1>
+<!-- blog/templates/blog/post_form.html -->
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>
+    {% if object %}ویرایش پست{% else %}ساخت پست جدید{% endif %}
+</h1>
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Save</button>
+    <button type="submit">ذخیره</button>
 </form>
+
+<a href="{% url 'blog:post_list' %}">بازگشت به لیست</a>
+{% endblock %}

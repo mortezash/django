@@ -1,6 +1,11 @@
-<h2>Are you sure?</h2>
-
+<!-- templates/blog/post_confirm_delete.html -->
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>حذف پست: {{ object.title }}</h1>
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Yes, Delete</button>
+    <p>آیا مطمئن هستید که می‌خواهید این پست را حذف کنید؟</p>
+    <button type="submit">بله، حذف شود</button>
 </form>
+<a href="{{ object.get_absolute_url }}">انصراف</a>
+{% endblock %}
