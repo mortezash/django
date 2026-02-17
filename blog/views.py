@@ -9,6 +9,7 @@ class PostListView(ListView):
     fields = ['title', 'slug', 'body']
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
+    paginate_by = 3   # هر صفحه ۵ پست
 
 
     def get_context_data(self, **kwargs): # فرستادن پارامتر اضافی به view
