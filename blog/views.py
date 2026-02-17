@@ -9,16 +9,17 @@ class PostListView(ListView):
     fields = ['title', 'slug', 'body']
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
-    paginate_by = 3   # هر صفحه ۵ پست
+    paginate_by = 10   # هر صفحه ۵ پست
 
+    def get_queryset(self):
+        q = self.request.GET.get('q', '')
+        return Post.objects.filter(title__icontains=q).order_by('-created_at')[:10]
 
     def get_context_data(self, **kwargs): # فرستادن پارامتر اضافی به view
         context = super().get_context_data(**kwargs)  # ← context اصلی رو می‌گیری
         context['title'] = 'All Blog Posts'           # ← یک متغیر اضافی به context اضافه می‌کنیم
         return context
 
-    def get_queryset(self):
-        return Post.objects.order_by('-created_at')[:10]  # آخرین‌ها اول , ۱۰ پست آخر
 
 
 class PostDetailView(DetailView):

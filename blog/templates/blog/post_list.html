@@ -2,7 +2,10 @@
 {% extends "blog/base.html" %}
 {% block content %}
 <h1>{{ title }}</h1>
-
+<form method="get">
+  <input type="text" name="q" placeholder="جستجو...">
+  <button type="submit">Search</button>
+</form>
 <ul>
     {% for post in posts %}
         <li>
