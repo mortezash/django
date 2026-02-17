@@ -20,6 +20,7 @@ from django.contrib.auth import views as auth_views
 from .views import SignUpView
 
 urlpatterns = [
+    path('', auth_views.LoginView.as_view(template_name='home_page.html'), name='home_page'),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
 
